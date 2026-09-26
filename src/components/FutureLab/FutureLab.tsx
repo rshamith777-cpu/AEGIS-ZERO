@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FutureTimelinePlan } from '../../types/aegis';
 import { sound } from '../../engine/soundEffects';
-import { GitBranch, CheckCircle2, ShieldCheck, Zap, TrendingUp, Truck, Clock, Leaf } from 'lucide-react';
+import { GitBranch, CheckCircle2, ShieldCheck, Zap, TrendingUp, Package, Clock, Globe } from 'lucide-react';
 
 interface FutureLabProps {
   plans: FutureTimelinePlan[];
@@ -365,7 +365,7 @@ export const FutureLab: React.FC<FutureLabProps> = ({
             paddingBottom: '12px'
           }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-              <Truck size={12} color="rgba(255,255,255,0.4)" />
+              <Package size={12} color="rgba(255,255,255,0.4)" />
               {selectedPlan.vehiclesAssigned} vehicles
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
@@ -373,7 +373,7 @@ export const FutureLab: React.FC<FutureLabProps> = ({
               {selectedPlan.transitMinutes} min transit
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-              <Leaf size={12} color="rgba(255,255,255,0.4)" />
+              <Globe size={12} color="rgba(255,255,255,0.4)" />
               {selectedPlan.co2SavedKg}kg CO₂ saved
             </span>
           </div>
