@@ -1,96 +1,186 @@
 # 🛡️ AEGIS ZERO
 ### Autonomous Food Resilience & Cascade Engine (ORBIT-A 3.1)
 
+<div align="center">
+  <img src="./docs/assets/hero_banner.jpg" alt="AEGIS ZERO - Autonomous Food Resilience & Cascade Engine" width="100%" />
+</div>
+
+<br />
+
+<div align="center">
+
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-19.0-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/NTHG_OS_Theme-Monochrome-000000.svg?style=for-the-badge)](https://nothing.tech)
+[![Theme](https://img.shields.io/badge/Theme-NTHG_OS_Monochrome-000000.svg?style=for-the-badge)](https://nothing.tech)
 [![Quality Gates](https://img.shields.io/badge/Quality_Gates-80%2F80_PASS-10B981.svg?style=for-the-badge)](./src/orbit/__tests__/)
 [![Scalability](https://img.shields.io/badge/Latency-29.8ms_(N%3D1000)-00E676.svg?style=for-the-badge)](./experiments/results/)
 [![License](https://img.shields.io/badge/License-MIT-white.svg?style=for-the-badge)](./LICENSE)
 
----
-
-## 🌟 Overview
-
-**AEGIS ZERO** is a state-of-the-art autonomous food supply resilience, cascading collapse prevention, and boundary intelligence engine powered by **ORBIT-A 3.1**. 
-
-Designed with a sleek, minimalist **NTHG OS (Nothing OS)** aesthetic, AEGIS ZERO provides real-time boundary transition distance tracking, non-linear structural coupling detection, multi-agent swarm orchestration, and Pareto-optimal counterfactual escape intervention computing for critical physical-digital logistics and agricultural supply chain networks.
-
-Unlike traditional black-box forecasting tools, AEGIS ZERO models the **exact operational geometry** of food distribution systems, identifying failure cascades before they happen and offering actionable, minimum-cost mitigation strategies.
+</div>
 
 ---
 
-## ✨ Key Modules & Features
+## 🌟 Executive Summary
 
-### 🌐 1. Physical-Digital Twin & Supply World
-- **Global & Regional Node Mapping**: Real-time visualization of grain elevators, cold storage hubs, regional processing centers, and transit corridors.
-- **Dynamic Stress Telemetry**: Live metric overlays tracking throughput, energy reserve, flow speed, and structural vulnerability.
-- **Operational Intelligence Console**: Instant access to detailed node telemetry, fault propagation paths, and real-time stress analytics.
+**AEGIS ZERO** is an industrial-grade autonomous resilience intelligence and catastrophic cascade prevention platform tailored for modern cyber-physical food supply ecosystems. Powered by the **ORBIT-A 3.1** engine and dressed in a high-contrast, minimalist **NTHG OS (Nothing OS)** monochrome aesthetic, the system detects non-equilibrium regime shifts, computes boundary transition distances, models higher-order non-linear systemic risks, and deploys Pareto-optimal counterfactual escape interventions before irreversible chain failures occur.
+
+---
+
+## 🔄 System Architecture & Data Flow Diagram
+
+The complete end-to-end data processing and intervention pipeline operates across five coordinated layers:
+
+```mermaid
+flowchart TD
+    %% Telemetry Sources
+    subgraph S1["1. PHYSICAL SENSORS & TELEMETRY INGESTION"]
+        A1["🌾 Agritech Corridors & Grain Silos"]
+        A2["🚚 Cold-Chain Transit Telemetry"]
+        A3["⚡ Bulk Power & Energy Grid PMUs"]
+        A4["📡 Regional Logistics Flows (NYC TLC / Port)"]
+    end
+
+    %% Provenance Layer
+    subgraph S2["2. INGESTION & AUDITED PROVENANCE LAYER"]
+        B1{"Provenance Classification Engine"}
+        B2["RAW Telemetry"]
+        B3["DERIVED Aggregations"]
+        B4["SIMULATED Physics Models"]
+        B5["SYNTHETIC Stress Benchmarks"]
+        B1 --> B2 & B3 & B4 & B5
+    end
+
+    %% ORBIT-A 3.1 Core
+    subgraph S3["3. ORBIT-A 3.1 BOUNDARY INTELLIGENCE CORE"]
+        C1["Compiled Adaptive Boundary Search (ABS)"]
+        C2["Higher-Order Non-Linear Interaction Engine\n(Order 1 Linear, Order 2 Pairwise, Order 3 Triplet)"]
+        C3["5-State Regime Classifier\n(NORMAL, WATCH, CRITICAL, TRANSITION, SHOCK)"]
+        C4["TBI Decomposition Engine\nComposite TBI = φ(BP, TM, SA, IL)"]
+        C1 --> C4
+        C2 --> C4
+        C3 --> C4
+    end
+
+    %% Decision & Swarm
+    subgraph S4["4. DECISION & MULTI-AGENT SWARM COCKPIT"]
+        D1["🌊 Cascade Autonomous Vision & DAG Tracker"]
+        D2["🤖 Autonomous Swarm Agents\n(Agritech, Logistics, Cold-Chain, Governor)"]
+        D3["🔮 Futures Engine & Monte Carlo Scenario Lab"]
+    end
+
+    %% Escape Interventions
+    subgraph S5["5. PARETO ESCAPE & CLOSED-LOOP ACTUATION"]
+        E1["MEI-2 Pareto Counterfactual Escape Optimizer"]
+        E2["⚡ Dynamic Transit Corridor Rerouting"]
+        E3["❄️ Cold-Storage Buffer Allocation"]
+        E4["⚖️ Inter-State Grain Stockpile Redistribution"]
+        E1 --> E2 & E3 & E4
+    end
+
+    %% Cross-subgraph connections
+    A1 & A2 & A3 & A4 --> B1
+    B2 & B3 & B4 & B5 --> C1 & C2 & C3
+    C4 --> D1 & D2 & D3
+    D1 & D2 & D3 --> E1
+
+    %% Styling
+    classDef darkBox fill:#0f172a,stroke:#38bdf8,stroke-width:1.5px,color:#f8fafc;
+    classDef redBox fill:#1e1b4b,stroke:#e11d48,stroke-width:2px,color:#ffffff;
+    classDef greenBox fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ffffff;
+    classDef purpleBox fill:#18181b,stroke:#a855f7,stroke-width:1.5px,color:#ffffff;
+    
+    class A1,A2,A3,A4 darkBox;
+    class B1,B2,B3,B4,B5 purpleBox;
+    class C1,C2,C3,C4 redBox;
+    class D1,D2,D3 darkBox;
+    class E1,E2,E3,E4 greenBox;
+```
+
+---
+
+## 🖥️ Operational Interface Showcase
+
+AEGIS ZERO features a zero-distraction **NTHG OS** design language engineered for mission-critical command centers:
+
+| Module | Interface Preview | Description |
+|---|---|---|
+| **Overview & Global Cockpit** | <img src="./docs/assets/overview.png" width="380" /> | Real-time system health, active risk telemetry, and unified command HUD. |
+| **Physical-Digital Twin** | <img src="./docs/assets/world.png" width="380" /> | Interactive 3D planetary and regional node telemetry with stress vectors. |
+| **Cascade Autonomous Vision** | <img src="./docs/assets/cascade.png" width="380" /> | Directed Acyclic Graph (DAG) cascade tracking paired with computer vision telemetry. |
+| **Multi-Agent Swarm Cockpit** | <img src="./docs/assets/agents.png" width="380" /> | Real-time consensus voting, execution logs, and automated agent action routing. |
+| **ORBIT-A 3.1 Lab** | <img src="./docs/assets/orbit.png" width="380" /> | 360° Boundary Transition Radar and 4-core TBI score decomposition. |
+| **Futures & Simulation Engine** | <img src="./docs/assets/futures.png" width="380" /> | Monte Carlo predictive modeling, climate disturbance injections, and stress testing. |
+
+---
+
+## ✨ Core Pillars & Capabilities
+
+### 🌐 1. Physical-Digital Twin
+- **Geographic & Network Topology**: Live coordinates across central grain silos, regional distribution points, cold-chain hubs, and coastal shipping nodes.
+- **Dynamic Stress Telemetry**: Real-time stress index monitoring throughput constraints, power grid resilience, and corridor capacity.
+- **Node Inspector Cards**: Instant drill-down modal displaying inbound/outbound links, structural betweenness centrality, and failure probability.
 
 ### 🌊 2. Cascade Autonomous Vision Tracker
-- **Cascade Flow Graph (DAG)**: Interactive directed acyclic graph mapping cascade propagation between interconnected supply hubs.
-- **Autonomous Vision Stream**: Integrated camera feedback stream analyzing visual telemetry and physical queue congestion.
-- **Cascade Vulnerability Heatmaps**: Instant identification of bottleneck nodes causing systemic domino failures.
+- **Topological Cascade DAG**: Visual representation of failure propagation paths between dependent hubs.
+- **Live Optical Stream**: Integrated camera vision analysis monitoring vehicle queue density, gate throughput, and warehouse loading status.
+- **Propagation Barrier Detection**: Automatic calculation of bottleneck dampening barriers to stop domino failures.
 
 ### 🤖 3. Autonomous Multi-Agent Swarm
-- **Specialized Swarm Agents**: 
-  - 🌾 *Agritech Agent*: Monitors crop yield predictions and harvest vectors.
-  - 🚚 *Logistics Dispatcher*: Optimizes route allocation under corridor disruption.
-  - ❄️ *Cold-Chain Auditor*: Prevents thermal degradation of perishable goods.
-  - ⚖️ *Allocation Governor*: Balances equitable distribution during regional deficits.
-- **Live Execution Stream**: Sub-second agent communication logs, consensus voting, and autonomous intervention dispatches.
+- **Specialized Autonomous Agents**:
+  - 🌾 **Agritech Specialist**: Harvest yield forecast tracking and regional weather vulnerability assessment.
+  - 🚚 **Logistics Dispatcher**: Route optimization, fuel constraint analysis, and dynamic detour dispatching.
+  - ❄️ **Cold-Chain Auditor**: Temperature degradation modeling for perishables and contingency cooling reserves.
+  - ⚖️ **Allocation Governor**: Mathematical priority weighting to preserve equitable distribution during shortages.
+- **Real-Time Swarm Consensus**: Sub-second agent consensus protocols with transparent vote logs and action manifests.
 
-### 🔮 4. Futures & Scenario Simulation Engine
-- **Stress Testing Scenarios**: Simulate extreme climate events, fuel grid failures, corridor blockades, and geopolitical shocks.
-- **Monte Carlo Resilience Projections**: Predict system recovery curves, state trajectory shifts, and recovery time estimates under varying parameters.
-
-### 🔬 5. ORBIT-A 3.1 Lab & Command Center
-- **Boundary Transition Distance (BTD) Radar**: 360° directional radar analyzing proximity to critical collapse thresholds across multi-dimensional state space.
-- **Transition Boundary Intelligence (TBI) Decomposition**: Instant breakdown of risk into 4 core quantities:
-  1. *Boundary Proximity (BP)*
-  2. *Transition Momentum (TM)*
-  3. *Structural Amplification (SA)*
-  4. *Intervention Leverage (IL)*
-- **Higher-Order Non-Linear Interaction Engine**: Dynamic screening of linear (Order 1), pairwise (Order 2), and triplet (Order 3) structural couplings.
-- **Minimum Escape Intervention 2 (MEI-2)**: Multi-action escape portfolio optimizer mapping Pareto-optimal intervention pathways.
+### 🔬 4. ORBIT-A 3.1 Command Center
+- **Boundary Transition Distance (BTD) Radar**: 360° directional radar displaying real-time proximity to catastrophic regime boundaries.
+- **Transition Boundary Intelligence (TBI) Decomposition**: Live deconstruction into:
+  1. *Boundary Proximity (BP)*: Proximity to failure envelopes.
+  2. *Transition Momentum (TM)*: Velocity and acceleration towards collapse states.
+  3. *Structural Amplification (SA)*: Network vulnerability multipliers.
+  4. *Intervention Leverage (IL)*: Cost vs. escape benefit ratio.
+- **Higher-Order Non-Linear Interactions**: Real-time screening of Order 1, Order 2, and Order 3 structural couplings.
+- **MEI-2 Escape Optimizer**: Generates multi-action counterfactual interventions along the Pareto frontier.
 
 ---
 
 ## 📐 Mathematical Framework
 
-System state at discrete time step $t$:
+The system state vector at discrete time step $t$ is expressed as:
 $$X_t = (V_t, E_t, S_t, D_t)$$
 
-The composite **Transition Boundary Intelligence (TBI)** score is calculated as:
+The composite **Transition Boundary Intelligence (TBI)** score is defined as:
 $$\text{TBI} = \phi(\text{BP}, \text{TM}, \text{SA}, \text{IL}) \in [0, 1]$$
 
-### Core Quantities Definition
+### Detailed Decomposition
 
-| Quantity | Formula | Description |
+| Quantity | Mathematical Formulation | Description |
 |---|---|---|
-| **Boundary Proximity (BP)** | $\text{BP} = \exp\left(-\frac{\text{BTD}_{\text{adaptive}}}{\sigma_{\text{scale}}}\right)$ | Normalized distance to non-equilibrium constraint boundaries. |
-| **Transition Momentum (TM)** | $\text{TM} = \frac{\alpha \|v_t\|_2 + \beta \|a_t\|_2}{1 + \alpha \|v_t\|_2 + \beta \|a_t\|_2} \cdot \max(0, \cos(\theta_{\text{align}}))$ | Speed, acceleration, and alignment with dominant failure vector. |
-| **Structural Amplification (SA)** | $\text{SA} = 1.0 + \gamma_{\text{shock}} \cdot \text{Shock} + \gamma_{\text{cent}} \cdot \Delta C_B$ | Topological amplification caused by network partition and bottlenecking. |
-| **Intervention Leverage (IL)** | $\text{IL} = \min\left(1.0, \frac{\Delta \text{BTD}_{\text{best}}}{\text{Cost}(U^*) \cdot (1 + \rho_{\text{impact}})}\right)$ | Feasibility and efficiency of counterfactual escape maneuvers. |
+| **Boundary Proximity (BP)** | $\text{BP} = \exp\left(-\frac{\text{BTD}_{\text{adaptive}}}{\sigma_{\text{scale}}}\right) \in [0, 1]$ | Evaluates normalized distance along candidate vulnerability rays to constraint violation surfaces. |
+| **Transition Momentum (TM)** | $\text{TM} = \frac{\alpha \|v_t\|_2 + \beta \|a_t\|_2}{1 + \alpha \|v_t\|_2 + \beta \|a_t\|_2} \cdot \max(0, \cos(\theta_{\text{align}}))$ | Quantifies velocity, acceleration, and alignment with dominant failure vectors. |
+| **Structural Amplification (SA)** | $\text{SA} = 1.0 + \gamma_{\text{shock}} \cdot \text{Shock} + \gamma_{\text{cent}} \cdot \Delta C_B \ge 1.0$ | Evaluates topological amplification resulting from corridor severing and network partition. |
+| **Intervention Leverage (IL)** | $\text{IL} = \min\left(1.0, \frac{\Delta \text{BTD}_{\text{best}}}{\text{Cost}(U^*) \cdot (1 + \rho_{\text{impact}})}\right) \in [0, 1]$ | Quantifies counterfactual controllability and escape feasibility along Pareto frontier. |
 
 ---
 
-## ⚡ Performance & Benchmarks
+## ⚡ Empirical Performance & Scalability Benchmarks
 
-ORBIT-A 3.1 features **Compiled Adaptive Boundary Search (ABS)**, achieving $6.5\times$ performance acceleration:
+Evaluated on Node.js / V8 across 5 measured iterations per scale:
 
-| $N$ (Nodes) | Variables | Mean Latency | Median Latency | Ray Evaluations | Status |
-|---|---|---|---|---|---|
-| 10 | 20 | 1.17 ms | 0.96 ms | 200 | ✅ PASS |
-| 50 | 100 | 1.74 ms | 1.67 ms | 200 | ✅ PASS |
-| 100 | 200 | 2.90 ms | 3.03 ms | 200 | ✅ PASS |
-| 250 | 500 | 7.07 ms | 7.12 ms | 200 | ✅ PASS |
-| 500 | 1000 | 11.42 ms | 10.57 ms | 200 | ✅ PASS |
-| **1000** | **2000** | **29.80 ms** | **31.55 ms** | **200** | ⚡ **PASSED (<50ms target)** |
+| $N$ (Nodes) | Variables | Mean Latency | Median Latency | Ray Evaluations | Active Subspace | Status |
+|---|---|---|---|---|---|---|
+| 10 | 20 | 1.17 ms | 0.96 ms | 200 | 16 | ✅ PASS |
+| 50 | 100 | 1.74 ms | 1.67 ms | 200 | 16 | ✅ PASS |
+| 100 | 200 | 2.90 ms | 3.03 ms | 200 | 16 | ✅ PASS |
+| 250 | 500 | 7.07 ms | 7.12 ms | 200 | 16 | ✅ PASS |
+| 500 | 1000 | 11.42 ms | 10.57 ms | 200 | 16 | ✅ PASS |
+| **1000** | **2000** | **29.80 ms** | **31.55 ms** | **200** | **16** | ⚡ **PASSED (<50ms target)** |
 
-- **Empirical Complexity**: $O(N)$ linear scaling slope ($\alpha = 0.707$).
-- **Test Suite Pass Rate**: 100% (80/80 Quality Gates).
+- **Real-Time Latency Target**: $\le 50\text{ms}$ at $N=1000$ $\rightarrow$ **Achieved: 29.80ms**
+- **Complexity Slope**: $\alpha = 0.707$ ($O(N)$ linear complexity)
+- **Quality Gates**: 80/80 Passing Unit & Integration Tests
 
 ---
 
@@ -98,95 +188,87 @@ ORBIT-A 3.1 features **Compiled Adaptive Boundary Search (ABS)**, achieving $6.5
 
 The native HTTP REST API server runs on port `3001` (`npm run start:server`):
 
-| Method | Endpoint | Functionality |
+| Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/health` | System health check, version, and uptime telemetry |
-| `GET` | `/api/version` | Version 3.1.0 engine manifest and capability flags |
-| `GET` | `/api/datasets` | Catalog of registered provenance datasets |
-| `GET` | `/api/datasets/:id` | Detailed dataset provenance metadata and SHA-256 hashes |
-| `GET` | `/api/provenance` | Audit breakdown (`RAW`, `DERIVED`, `SIMULATED`, `SYNTHETIC`) |
-| `GET` | `/api/metrics` | 4-leaderboard performance metrics |
-| `POST` | `/api/analyze` | Run full ORBIT-A 3.1 analysis pipeline |
-| `POST` | `/api/boundary` | Evaluate Adaptive Boundary Search and vulnerability rays |
-| `POST` | `/api/intervention` | Generate MEI-2 escape portfolios along Pareto frontier |
+| `GET` | `/api/health` | Service uptime, engine version, and scalability metrics |
+| `GET` | `/api/version` | Version 3.1.0 manifest and active algorithm capability flags |
+| `GET` | `/api/datasets` | Registered external datasets catalog |
+| `GET` | `/api/datasets/:id` | Specific dataset provenance metadata and SHA-256 hashes |
+| `GET` | `/api/provenance` | Audit category breakdown (`RAW`, `DERIVED`, `SIMULATED`, `SYNTHETIC`) |
+| `GET` | `/api/metrics` | 4-leaderboard benchmark metrics and complexity slope |
+| `POST` | `/api/analyze` | Run comprehensive ORBIT-A 3.1 analysis pipeline |
+| `POST` | `/api/boundary` | Evaluate Adaptive Boundary Search and proposal rays |
+| `POST` | `/api/intervention` | Optimize MEI-2 escape portfolios along Pareto frontier |
 | `POST` | `/api/shock/analyze` | Detect and classify instantaneous non-equilibrium shocks |
-| `POST` | `/api/batch/analyze` | Execute batch inference across node arrays |
+| `POST` | `/api/batch/analyze` | Batch inference pipeline across state arrays |
 | `POST` | `/api/simulate` | Run custom scenario simulations |
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 Quick Start Guide
 
 ### Prerequisites
-- **Node.js**: v18.0.0 or higher
-- **npm**: v9.0.0 or higher
+- **Node.js**: v18.0+
+- **npm**: v9.0+
 
-### Installation & Local Setup
+### Setup & Run
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/rshamith777-cpu/AEGIS-ZERO.git
-   cd AEGIS-ZERO
-   ```
+```bash
+# 1. Clone the repository
+git clone https://github.com/rshamith777-cpu/AEGIS-ZERO.git
+cd AEGIS-ZERO
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+# 2. Install dependencies
+npm install
 
-3. **Run quality gate unit tests:**
-   ```bash
-   npm run test:orbit
-   ```
+# 3. Run Quality Gate test suite
+npm run test:orbit
 
-4. **Execute scalability benchmarks:**
-   ```bash
-   npm run benchmark:scalability
-   ```
+# 4. Run scalability benchmark
+npm run benchmark:scalability
 
-5. **Start the backend REST API server:**
-   ```bash
-   npm run start:server
-   ```
+# 5. Start the REST API server (optional background daemon)
+npm run start:server
 
-6. **Start the development frontend web app:**
-   ```bash
-   npm run dev
-   ```
-   Open `http://localhost:5174` in your browser.
+# 6. Launch the development application
+npm run dev
+```
+
+Visit `http://localhost:5174` to open the **AEGIS ZERO Command Interface**.
 
 ---
 
-## 📁 Repository Structure
+## 📂 Repository Layout
 
 ```
 AEGIS ZERO/
 ├── docs/                                    # Research documentation & baseline audits
+│   ├── assets/                              # Screenshots, diagrams & hero media
 │   ├── ORBIT_A_3_1_BASELINE.md
 │   ├── ORBIT_A_3_1_INTERACTION_ABLATION.md
 │   └── ORBIT_A_3_1_FINAL_AUDIT.md
 ├── src/
-│   ├── components/                          # NTHG OS UI Modules
-│   │   ├── Navigation/                      # LeftRail & Navigation components
+│   ├── components/                          # NTHG OS Interface Modules
+│   │   ├── Navigation/                      # LeftRail & Top Command Bar
 │   │   ├── World/                           # Physical-Digital Twin World View
 │   │   ├── Cascade/                         # Cascade Vision & DAG Tracker
-│   │   ├── Agents/                          # Multi-Agent Swarm Cockpit
-│   │   ├── Futures/                         # Scenario & Simulation Engine
-│   │   └── OrbitLab/                        # BTD Radar & TBI Command Center
-│   ├── orbit/                               # ORBIT-A 3.1 Algorithmic Engine
-│   │   ├── v3/                              # Core Inference, Shock & ABS Engines
-│   │   └── __tests__/                       # Quality Gate Test Suite
+│   │   ├── Agents/                          # Multi-Agent Swarm War Room
+│   │   ├── Futures/                         # Scenario & Monte Carlo Engine
+│   │   └── OrbitLab/                        # BTD Radar & TBI Decomposition
+│   ├── orbit/                               # ORBIT-A 3.1 Inference Engine
+│   │   ├── v3/                              # Core Inference, Shock & ABS
+│   │   └── __tests__/                       # 80 Quality Gate Tests
 │   ├── data/                                # Data ingestion & provenance adapters
 │   └── server/                              # HTTP REST API server
-├── public/                                  # Static assets & icons
+├── public/                                  # Static icons and assets
 └── vite.config.ts                           # Vite configuration
 ```
 
 ---
 
-## 📄 License
+## 📜 License
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**. See `LICENSE` for details.
 
 ---
 *AEGIS ZERO — Autonomous & Resilient Engineering for Global Food Security Systems.*
