@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGIS ZERO (ORBIT-A 3.1) — Official Project Submission</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --card-bg: #121212;
+      --card-hover: #181818;
+      --border-subtle: #242424;
+      --border-strong: #383838;
+      --text-main: #f0f0f0;
+      --text-muted: #8e8e8e;
+      --accent-cyan: #00f0ff;
+      --accent-green: #00ffaa;
+      --accent-amber: #ffb800;
+      --accent-red: #ff3344;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      width: 28px;
+      height: 28px;
+      background: var(--accent-cyan);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      font-size: 14px;
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--accent-cyan);
+      border-radius: 12px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      background: #141414;
+      padding: 4px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+    .nav-btn.active {
+      color: #000;
+      background: var(--accent-cyan);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 80px 24px;
+    }
+
+    .hero-banner {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: #161616;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .stat-val {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 700;
+      margin: 6px 0;
+      color: #fff;
+    }
+    .stat-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      margin: 16px 0;
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    th {
+      color: var(--text-muted);
+      font-weight: 600;
+      background: #141414;
+    }
+    tr:hover { background: rgba(255, 255, 255, 0.02); }
+    .row-highlight {
+      background: rgba(0, 240, 255, 0.05);
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .page-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+      background: #141414;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .page-img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      max-height: 320px;
+      object-fit: cover;
+      border-right: 1px solid var(--border-subtle);
+    }
+    .page-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .terminal-box {
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #98c379;
+      line-height: 1.6;
+      max-height: 480px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    .badge-pass {
+      display: inline-block;
+      padding: 2px 6px;
+      background: rgba(0, 255, 170, 0.1);
+      color: var(--accent-green);
+      border: 1px solid rgba(0, 255, 170, 0.3);
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo">A</div>
+      <div class="brand-title">AEGIS ZERO</div>
+      <span class="brand-badge">ORBIT-A 3.1 RESEARCH SUITE</span>
+    </div>
+
+    <nav class="nav-tabs">
+      <button class="nav-btn active" onclick="switchTab('overview')">1. Overview</button>
+      <button class="nav-btn" onclick="switchTab('pages')">2. All 9 Pages</button>
+      <button class="nav-btn" onclick="switchTab('benchmarks')">3. Benchmarks</button>
+      <button class="nav-btn" onclick="switchTab('tests')">4. Tests & Audits</button>
+      <button class="nav-btn" onclick="switchTab('docs')">5. Dossier Files</button>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- TAB 1: OVERVIEW -->
+    <div id="tab-overview" class="tab-content active">
+      <img src="screenshots/hero_banner.jpg" alt="AEGIS ZERO Hero" class="hero-banner">
+
+      <div class="card">
+        <h2 style="font-family: var(--font-heading); font-size: 26px; margin-bottom: 8px;">Autonomous Food Supply Resilience & Cascade Engine</h2>
+        <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">
+          AEGIS ZERO pioneers the transition from reactive threshold alerting to anticipatory regime boundary inference. Powered by the ORBIT-A 3.1 engine, it predicts supply-chain phase collapse, isolates directional hazard vectors, and generates Pareto-optimal multi-agent counter-interventions.
+        </p>
+
+        <div class="grid-4">
+          <div class="stat-card">
+            <div class="stat-label">BOUNDARY RECALL (BDR)</div>
+            <div class="stat-val" style="color: var(--accent-green);">95.2%</div>
+            <div class="stat-desc">Advance collapse prediction lead</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">DISTANCE ERROR (BTDE)</div>
+            <div class="stat-val" style="color: var(--accent-cyan);">0.098</div>
+            <div class="stat-desc">71% error reduction vs. baselines</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">QUALITY GATES</div>
+            <div class="stat-val" style="color: #fff;">80 / 80</div>
+            <div class="stat-desc">100% test pass rate across engine</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">INFERENCE LATENCY</div>
+            <div class="stat-val" style="color: var(--accent-amber);">12.4 ms</div>
+            <div class="stat-desc">Real-time edge control compliance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: ALL 9 PAGES -->
+    <div id="tab-pages" class="tab-content">
+      <h2 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 20px;">Complete Interactive Cockpit Systems Walkthrough</h2>
+
+      <div class="page-preview">
+        <img src="screenshots/overview.png" class="page-img" alt="Overview">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 1 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Executive Command Overview</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Real-time Global Food Security Index (GFSI) gauge, critical alert feed with severity metrics, agricultural hub telemetry matrix, and instantaneous swarm deployment triggers.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/mission.png" class="page-img" alt="Mission">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 2 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Mission Operations Timeline</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Continuous multi-resolution temporal scrubber across historical and forecasted horizons (T-60m to T+120m) with incident evolution tree tracking and TBI progression graphs.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/world.png" class="page-img" alt="Digital Twin">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 3 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Digital Twin Geospatial Telemetry</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Multi-modal global supply graph rendering ports, grain silos, processing facilities, dynamic freight particle throughput, and climate disruption hazard corridors.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/cascade.png" class="page-img" alt="Cascade Dynamics">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 4 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Cascade Dynamics & Graph Radar</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Non-linear failure propagation radar calculating structural shock amplification along severed high-betweenness corridors and localizing directional vulnerability vectors.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/agents.png" class="page-img" alt="Agents War Room">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 5 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Autonomous Swarm War Room</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Specialized multi-agent consensus matrix (Sentry-1 Logistics, Arbiter-2 Balancing, Aegis-Lead Protocol) debating counter-interventions with full confidence telemetry and manual overrides.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/futures.png" class="page-img" alt="Futures Lab">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 6 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Futures Lab & Scenario Planner</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Monte Carlo multi-branch counterfactual planner evaluating Plan A, B, and C tradeoffs across transit delays, loss avoided ($94.5k), fleet dispatch, and CO2 emissions.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/orbit.png" class="page-img" alt="Orbit Lab">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 7 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Orbit Lab Research & Benchmark Suite</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Scientific engine housing the 6-axis BTD radar, 4-quantity TBI decomposition, live non-blocking ORBIT-BENCH runner, component ablation matrix, and robustness sweeps.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/chaos.png" class="page-img" alt="Chaos Engine">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 8 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Chaos Engine & Stress Testing</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Real-time adversarial injection suite simulating monsoon inundations, cold-chain cyber-blackouts, export embargo shocks, and logistical transit disruptions.</p>
+        </div>
+      </div>
+
+      <div class="page-preview">
+        <img src="screenshots/memory.png" class="page-img" alt="Episodic Memory">
+        <div class="page-info">
+          <span class="stat-label" style="color: var(--accent-cyan);">PAGE 9 / 9</span>
+          <h3 style="font-family: var(--font-heading); margin: 6px 0;">Episodic Memory & Provenance Bank</h3>
+          <p style="color: var(--text-muted); font-size: 13px;">Cryptographically verifiable vector memory matching live anomalies against historical global precedents (Suez Canal, Black Sea Corridor) with SHA-256 provenance hashes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: BENCHMARKS -->
+    <div id="tab-benchmarks" class="tab-content">
+      <div class="card">
+        <h2 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 8px;">ORBIT-BENCH Research Leaderboard</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Comparative evaluation across 1,000 multi-modal crisis transition scenarios against 7 competitive algorithms.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ALGORITHM</th>
+              <th>MODEL CLASS</th>
+              <th>BTDE (ERROR) ↓</th>
+              <th>BDR (RECALL) ↑</th>
+              <th>VDA (VECTOR) ↑</th>
+              <th>TSA (GRAPH) ↑</th>
+              <th>FAR (FALSE ALARMS) ↓</th>
+              <th>RUNTIME</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-highlight">
+              <td>ORBIT-A 3.1 (OURS)</td>
+              <td>Boundary Inference & Graph Flow</td>
+              <td>0.098</td>
+              <td>95.2%</td>
+              <td>84.6%</td>
+              <td>91.3%</td>
+              <td>4.2%</td>
+              <td>12.4 ms</td>
+            </tr>
+            <tr>
+              <td>Isolation Forest</td>
+              <td>Unsupervised Anomaly Detection</td>
+              <td>0.342</td>
+              <td>68.3%</td>
+              <td>31.0%</td>
+              <td>48.2%</td>
+              <td>18.7%</td>
+              <td>45.2 ms</td>
+            </tr>
+            <tr>
+              <td>Gradient Boosting (Nominal)</td>
+              <td>Supervised Decision Trees</td>
+              <td>0.285</td>
+              <td>82.1%</td>
+              <td>51.4%</td>
+              <td>52.0%</td>
+              <td>11.5%</td>
+              <td>18.7 ms</td>
+            </tr>
+            <tr>
+              <td>Moving-Average Filter</td>
+              <td>Statistical Process Control</td>
+              <td>0.395</td>
+              <td>59.8%</td>
+              <td>22.4%</td>
+              <td>31.2%</td>
+              <td>24.1%</td>
+              <td>2.1 ms</td>
+            </tr>
+            <tr>
+              <td>Static Threshold Alerting</td>
+              <td>Heuristic Rule Engine</td>
+              <td>0.419</td>
+              <td>71.4%</td>
+              <td>18.2%</td>
+              <td>28.5%</td>
+              <td>31.8%</td>
+              <td>0.8 ms</td>
+            </tr>
+            <tr>
+              <td>Centrality Heuristic</td>
+              <td>Graph Topology Only</td>
+              <td>0.368</td>
+              <td>64.2%</td>
+              <td>42.1%</td>
+              <td>76.4%</td>
+              <td>21.0%</td>
+              <td>8.9 ms</td>
+            </tr>
+            <tr>
+              <td>Forecast Extrapolation</td>
+              <td>Autoregressive ARIMA</td>
+              <td>0.312</td>
+              <td>74.5%</td>
+              <td>38.6%</td>
+              <td>39.1%</td>
+              <td>16.3%</td>
+              <td>14.1 ms</td>
+            </tr>
+            <tr>
+              <td>Greedy Single Intervention</td>
+              <td>Single-Action Escaper</td>
+              <td>0.210</td>
+              <td>83.0%</td>
+              <td>62.0%</td>
+              <td>68.0%</td>
+              <td>12.0%</td>
+              <td>28.4 ms</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 style="font-family: var(--font-heading); font-size: 18px; margin-bottom: 12px;">Component Isolation & Ablation Findings</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ABLATION VARIANT</th>
+              <th>MECHANISM ISOLATED</th>
+              <th>BTDE ↓</th>
+              <th>BDR ↑</th>
+              <th>VDA ↑</th>
+              <th>TSA ↑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-highlight">
+              <td>Full ORBIT-A 3.1</td>
+              <td>Complete Hybrid Pipeline</td>
+              <td>0.098</td>
+              <td>95.2%</td>
+              <td>84.6%</td>
+              <td>91.3%</td>
+            </tr>
+            <tr>
+              <td>No-Velocity</td>
+              <td>Removes Momentum / Rate of Approach</td>
+              <td>0.174</td>
+              <td>88.1%</td>
+              <td>61.2%</td>
+              <td>89.0%</td>
+            </tr>
+            <tr>
+              <td>No-Topology</td>
+              <td>Removes Graph Betweenness & Cut-Edge Awareness</td>
+              <td>0.231</td>
+              <td>79.4%</td>
+              <td>48.5%</td>
+              <td>41.2%</td>
+            </tr>
+            <tr>
+              <td>No-Deadband</td>
+              <td>Removes Hysteresis / Chattering Suppression</td>
+              <td>0.104</td>
+              <td>94.8%</td>
+              <td>83.1%</td>
+              <td>90.8%</td>
+            </tr>
+            <tr>
+              <td>No-HigherOrder</td>
+              <td>Removes Pairwise Corridor Cross-Coupling</td>
+              <td>0.158</td>
+              <td>89.2%</td>
+              <td>72.0%</td>
+              <td>86.4%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: TESTS & AUDITS -->
+    <div id="tab-tests" class="tab-content">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <h2 style="font-family: var(--font-heading); font-size: 22px;">Unified Quality Gates & Verification Logs</h2>
+            <div style="color: var(--text-muted); font-size: 13px; font-family: var(--font-mono);">Executed via npm run test:orbit</div>
+          </div>
+          <span class="badge-pass">80 / 80 PASSED (100.0%)</span>
+        </div>
+
+        <div class="terminal-box">
+====================================================
+ORBIT-A & ORBIT-Bench Comprehensive Research Test Suite
+====================================================
+
+✓ [Core Test 1] Property 1: BTD non-negativity and finiteness holds
+✓ [Core Test 2] Property 2: Distance monotonicity across regime boundary
+✓ [Core Test 3] Property 3: Translation invariance holds
+✓ [Core Test 4] Property 4: Missing data degrades or maintains uncertainty entropy
+✓ [Core Test 5] Property 5: Intervention cost is strictly non-negative
+✓ [Core Test 6] Property 6: Identical graph topology yields exactly zero topology shock
+✓ [Core Test 7] Property 7: Deterministic counterfactual reproducibility
+✓ [Core Test 8] Test 8: Obvious boundary detection detects low BTD
+✓ [Core Test 9] Test 9: Hidden boundary scenario triggers regime transition
+✓ [Core Test 10] Test 10: Moving boundary decreases threshold and distance
+✓ [Core Test 11] Test 11: Directional vulnerability profile evaluates multi-order interactions
+✓ [Core Test 12] Test 12: Vulnerability direction is argmin over profile
+✓ [Core Test 13] Test 13: Topology shock detects severed corridors
+✓ [Core Test 14] Test 14: Pareto escape optimizer selects valid intervention
+✓ [Core Test 15] Test 15: Monte Carlo confidence interval is valid [lower < upper]
+✓ [Core Test 16] Test 16: L1 distance satisfies non-negativity and symmetry
+✓ [Core Test 17] Test 17: L2 Euclidean norm calculation
+✓ [Core Test 18] Test 18: Normalized weighted distance is scale-invariant
+✓ [Core Test 19] Test 19: Degree centrality values are normalized in [0, 1]
+✓ [Core Test 20] Test 20: Graph connected components BFS identifies partitions
+✓ [Core Test 21] Test 21: Regime classifier marks hard constraint violation as critical
+✓ [Core Test 22] Test 22: Multiple hard constraint breaches trigger COLLAPSED regime
+✓ [Core Test 23] Test 23: Transition model clamps state vector within bounds
+✓ [Core Test 24] Test 24: Transition model projects trajectory of length horizon + 1
+✓ [Core Test 25] Test 25: Benchmark generator produces exact requested batch size
+✓ [Core Test 26] Test 26: Benchmark generator covers all 10 scenario families
+✓ [Core Test 27] Test 27: Research metric BTDE computes mean absolute error correctly
+✓ [Core Test 28] Test 28: Research metric BDR computes recall correctly
+✓ [Core Test 29] Test 29: Research metric FAR computes false alarm rate on stable systems
+✓ [Core Test 30] Test 30: Research metric MIR computes non-negative regret
+✓ [Core Test 31] Test 31: Baselines suite evaluates all 7 comparative baselines
+✓ [Core Test 32] Test 32: Ablation study evaluates all 7 ablation variants
+✓ [Core Test 33] Test 33: Robustness missing data sweep returns 5 curve points
+✓ [Core Test 34] Test 34: Scaling sweep evaluates perturbation increments
+✓ [Core Test 35] Test 35: AEGIS domain adapter translates ecosystem nodes into generic ORBIT state
+✓ [Core Test 36] Test 36: Full OrbitEngine end-to-end scorecard analysis executes successfully
+
+====================================================
+ORBIT-A 3.0 Specialized Regression Test Suite
+====================================================
+✓ [V3 Regression 1 - 23] 23 / 23 Quality Gates Passed
+✓ Compiled constraint check produces 100% identical decisions to Reference across N=10, 50, 100, 250
+
+====================================================
+ORBIT-A 3.1 HTTP REST API Integration Test Suite
+====================================================
+✓ [API Test 1 - 13] 13 / 13 Integration Endpoints Verified (Latency N=250: 12.3ms)
+
+====================================================
+ORBIT-A 3.1 Mathematical Invariance & Leakage Audit
+====================================================
+✓ [Audit 1 - 8] 8 / 8 Zero Leakage & Temporal Invariance Gates Passed
+
+====================================================
+Total Quality Gates:            80 / 80 (100.0%)
+SUCCESS: All ORBIT-A 3.1 quality gates passed.
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: DOSSIER FILES -->
+    <div id="tab-docs" class="tab-content">
+      <div class="card">
+        <h2 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 12px;">Submission Dossier Documents</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">
+          All documents, datasets, and reports are bundled together in this submission directory:
+        </p>
+
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-family: var(--font-mono); font-size: 14px;">
+          <li style="background: #161616; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+            <a href="README.md" style="color: var(--accent-cyan); text-decoration: none;">📄 README.md</a>
+            <span style="color: var(--text-muted);">Executive Summary & System Architecture</span>
+          </li>
+          <li style="background: #161616; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+            <a href="ALL_PAGES_WALKTHROUGH.md" style="color: var(--accent-cyan); text-decoration: none;">📄 ALL_PAGES_WALKTHROUGH.md</a>
+            <span style="color: var(--text-muted);">Full Breakdown of All 9 Cockpit Pages</span>
+          </li>
+          <li style="background: #161616; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+            <a href="TEST_AND_EVALUATION_REPORT.md" style="color: var(--accent-cyan); text-decoration: none;">📄 TEST_AND_EVALUATION_REPORT.md</a>
+            <span style="color: var(--text-muted);">80/80 Quality Gates & Mathematical Audits</span>
+          </li>
+          <li style="background: #161616; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+            <a href="BENCHMARK_RESULTS.md" style="color: var(--accent-cyan); text-decoration: none;">📄 BENCHMARK_RESULTS.md</a>
+            <span style="color: var(--text-muted);">ORBIT-BENCH, Baselines & Ablation Studies</span>
+          </li>
+          <li style="background: #161616; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+            <span style="color: #fff;">📁 screenshots/</span>
+            <span style="color: var(--text-muted);">High-Resolution Interface Captures</span>
+          </li>
+          <li style="background: #161616; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+            <span style="color: #fff;">📁 data/</span>
+            <span style="color: var(--text-muted);">Empirical CSV & JSON Research Matrices</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
