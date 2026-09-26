@@ -1,0 +1,23 @@
+Domain,Model,Precision,Recall,F1,AUROC,MWT_Mins,FalseAlarms_Day,ECE,RPU,OOS,ICS_Pct,Runtime_Ms
+NYC_Transportation,"Static Threshold",0,0,0,0.6667,0,15.16,0.3896,0,0.8421,92.1,0.17
+NYC_Transportation,"Moving Average",0,0,0,0.1667,0,0,0.1578,0,1,100,0.19
+NYC_Transportation,"Forecast-Only Model",0,0,0,0.6111,0,0,0.0069,0,1,100,0.18
+NYC_Transportation,"Isolation Forest",0,0,0,0,0,0,0.4696,0,1,100,0.12
+NYC_Transportation,"Random Forest",0,0,0,0.9444,0,0,0.05,0,1,100,0.12
+NYC_Transportation,"Gradient Boosting",0,0,0,1,0,0,0.004,0,1,100,0.29
+NYC_Transportation,"Centrality Heuristic",0.1429,1,0.25,1,0,30.32,0.605,0,0.4623,79.3,0.39
+NYC_Transportation,"Random Intervention",0.125,1,0.2222,0.6667,0,35.37,0.3896,0,0.4114,82.6,0.13
+NYC_Transportation,"Greedy Intervention",0.125,1,0.2222,0.6667,0,35.37,0.3896,0,0.6593,94.7,0.17
+NYC_Transportation,"ORBIT-A v1.0",0.0526,1,0.1,0,0,90.95,0.9203,0,0.5921,81.3,808.66
+NYC_Transportation,"ORBIT-A v2.0",0,0,0,0,0,90.95,0.9693,0,0.6632,85,489.25
+UNSW_Cybersecurity,"Static Threshold",0,0,0,0.5,0,1440,0.9999,0,0.075,50,0.1
+UNSW_Cybersecurity,"Moving Average",0,0,0,0.5,0,0,0.1618,0,1,100,0.18
+UNSW_Cybersecurity,"Forecast-Only Model",0,0,0,0.5,0,1140,0.7958,0,0.3385,70.3,0.38
+UNSW_Cybersecurity,"Isolation Forest",0,0,0,0.5,0,1440,0.6484,0,0.1667,60,0.31
+UNSW_Cybersecurity,"Random Forest",0,0,0,0.5,0,0,0.15,0,1,100,0.15
+UNSW_Cybersecurity,"Gradient Boosting",0,0,0,0.5,0,0,0.0474,0,1,100,0.24
+UNSW_Cybersecurity,"Centrality Heuristic",0,0,0,0.5,0,0,0.0595,0,1,100,0.04
+UNSW_Cybersecurity,"Random Intervention",0,0,0,0.5,0,1440,0.9999,0,0.0667,41.4,0.1
+UNSW_Cybersecurity,"Greedy Intervention",0,0,0,0.5,0,1440,0.9999,0,0.4688,87.5,0.12
+UNSW_Cybersecurity,"ORBIT-A v1.0",0,0,0,0.5,0,0,0,0,1,100,274.71
+UNSW_Cybersecurity,"ORBIT-A v2.0",0,0,0,0.5,0,1320,0.9582,0,0.6052,84.6,161.43

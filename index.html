@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ececeb">
+  <title>AEGIS ZERO — Autonomous Food Resilience & Cascade Engine (ORBIT-A 3.1)</title>
+
+  <!-- Google Fonts: Doto (Nothing OS Dot Matrix), Space Grotesk, JetBrains Mono, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+
+  <!-- SVG Filter Definitions for Nothing OS Grain & Tactile Noise -->
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+    <defs>
+      <filter id="cardNoise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="42" stitchTiles="stitch" result="turb" />
+        <feColorMatrix type="saturate" values="0" in="turb" result="grey" />
+        <feComponentTransfer in="grey">
+          <feFuncR type="linear" slope="1.5" intercept="-0.2" />
+          <feFuncG type="linear" slope="1.5" intercept="-0.2" />
+          <feFuncB type="linear" slope="1.5" intercept="-0.2" />
+          <feFuncA type="table" tableValues="0 0.35" />
+        </feComponentTransfer>
+      </filter>
+      <filter id="sandGrainNoise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="17" stitchTiles="stitch" result="turb" />
+        <feColorMatrix type="saturate" values="0" in="turb" />
+        <feComponentTransfer>
+          <feFuncA type="table" tableValues="0 0.22" />
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+</head>
+<body>
+  <!-- Root React Mounting Container -->
+  <div id="root"></div>
+
+  <!-- Vite TypeScript Application Entry -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

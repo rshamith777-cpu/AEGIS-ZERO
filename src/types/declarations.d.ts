@@ -1,0 +1,53 @@
+declare module 'lucide-react' {
+  import * as React from 'react';
+  export interface LucideProps extends React.SVGProps<SVGSVGElement> {
+    size?: string | number;
+    color?: string;
+    strokeWidth?: string | number;
+    className?: string;
+  }
+  export type Icon = React.FC<LucideProps>;
+  export const Shield: Icon;
+  export const ShieldAlert: Icon;
+  export const ShieldCheck: Icon;
+  export const Zap: Icon;
+  export const Activity: Icon;
+  export const Info: Icon;
+  export const Camera: Icon;
+  export const Eye: Icon;
+  export const AlertCircle: Icon;
+  export const Scan: Icon;
+  export const TrendingUp: Icon;
+  export const Thermometer: Icon;
+  export const Bot: Icon;
+  export const Swords: Icon;
+  export const CheckCircle: Icon;
+  export const CheckCircle2: Icon;
+  export const Flame: Icon;
+  export const RefreshCw: Icon;
+  export const GitBranch: Icon;
+  export const GitCommit: Icon;
+  export const AlertTriangle: Icon;
+  export const XCircle: Icon;
+  export const ArrowRight: Icon;
+  export const Play: Icon;
+  export const CloudRain: Icon;
+  export const Users: Icon;
+  export const WifiOff: Icon;
+  export const AlertOctagon: Icon;
+  export const RotateCcw: Icon;
+  export const Database: Icon;
+  export const Search: Icon;
+  export const Volume2: Icon;
+  export const VolumeX: Icon;
+  export const Video: Icon;
+  export const Radio: Icon;
+  export const Sparkles: Icon;
+  export const Package: Icon;
+  export const Clock: Icon;
+  export const X: Icon;
+  export const Globe: Icon;
+  export const Layers: Icon;
+  export const ChevronUp: Icon;
+  export const ChevronDown: Icon;
+}

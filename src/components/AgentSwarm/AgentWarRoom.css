@@ -1,0 +1,25 @@
+/* src/components/AgentSwarm/AgentWarRoom.css */
+.agent-warroom-dark {
+  --aw-bg: #0b1120; /* dark background */
+  --aw-surface: rgba(19, 27, 46, 0.85);
+  --aw-text-main: #f8fafc;
+  --aw-text-muted: #94a3b8;
+  --aw-border: rgba(255, 255, 255, 0.1);
+  background-color: var(--aw-bg);
+  color: var(--aw-text-main);
+}
+
+.agent-warroom-dark .agent-warroom-header {
+  background: var(--aw-surface);
+  border-bottom: 1px solid var(--aw-border);
+}
+
+.agent-warroom-dark .agent-warroom-content {
+  background: var(--aw-surface);
+  border: 1px solid var(--aw-border);
+}
+
+.agent-warroom-dark .consensus-banner {
+  background: var(--aw-surface);
+  border: 2px solid var(--state-amber);
+}

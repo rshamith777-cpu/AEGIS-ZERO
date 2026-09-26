@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ==================================================
+     NOTHING OS WHITE / PAPER ARCHITECTURAL PALETTE
+     ================================================== */
+  --paper: #ececeb;
+  --ink: #111111;
+  --copy: #374151;
+  
+  /* Nothing OS Signature Red */
+  --nothing-red: #d71921;
+  --nothing-red-bright: #ff2a4b;
+  --nothing-red-dim: rgba(215, 25, 33, 0.12);
+  --nothing-red-glow: rgba(215, 25, 33, 0.35);
+
+  /* Surface Hierarchy (Paper-White Aesthetic) */
+  --bg-space: #ececeb;
+  --bg-surface: #f5f5f3;
+  --bg-elevated: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.96);
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  /* Hairline Precision Borders */
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-muted: rgba(0, 0, 0, 0.16);
+  --border-strong: rgba(0, 0, 0, 0.28);
+  --border-glass: rgba(255, 255, 255, 0.7);
+
+  /* Tactical Signals & Telemetry */
+  --signal-cyan: #0284c7;
+  --signal-white: #111111; /* Dark ink for optimal readability in white theme */
+  --signal-text-muted: #555555;
+  --signal-text-dim: #777777;
+
+  /* Resiliency Operational Regimes */
+  --state-green: #059669;
+  --state-amber: #d97706;
+  --state-red: #d71921;
+
+  /* Tactile Sand Table Palette */
+  --sand-ground: #e8e8e6;
+  --sand-dune: #e0deda;
+  --sand-laser: #d71921;
+  --sand-beacon: #ff2a4b;
+
+  /* Typography */
+  --font-dot: 'Doto', 'Space Grotesk', monospace;
+
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-data: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-space);
+  color: var(--signal-white);
+  font-family: var(--font-body);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimalist technical scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-muted);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* ==================================================
+   TYPOGRAPHY UTILITIES (NOTHING OS)
+   ================================================== */
+.font-dot {
+  font-family: var(--font-dot);
+  font-feature-settings: 'cv01' on, 'cv02' on;
+  letter-spacing: 0.04em;
+}
+
+.font-ndot {
+  font-family: var(--font-dot);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.font-data {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.tech-label {
+  font-family: var(--font-data);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #444444;
+  font-weight: 600;
+}
+
+/* ==================================================
+   NOTHING OS SIGNATURE COMPONENTS & BADGES
+   ================================================== */
+.nothing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-muted);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--signal-white);
+  letter-spacing: 0.04em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.nothing-badge.active {
+  border-color: var(--nothing-red);
+  color: var(--nothing-red);
+  background: var(--nothing-red-dim);
+}
+
+.nothing-dot-red {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--nothing-red);
+  box-shadow: 0 0 6px rgba(215, 25, 33, 0.6);
+  display: inline-block;
+}
+
+.nothing-dot-cyan {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--signal-cyan);
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.6);
+  display: inline-block;
+}
+
+.nothing-dot-green {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--state-green);
+  box-shadow: 0 0 6px rgba(5, 150, 105, 0.6);
+  display: inline-block;
+}
+
+/* Nothing OS Panel Container */
+.nothing-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.nothing-panel-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+}
+
+/* Nothing OS Pill Button */
+.nothing-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #111111;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nothing-btn-primary:hover {
+  background: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.nothing-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-elevated);
+  color: var(--signal-white);
+  border: 1px solid var(--border-muted);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nothing-btn-secondary:hover {
+  border-color: var(--signal-white);
+  background: var(--bg-surface);
+}
+
+/* Tactile Grain Overlay */
+.tactile-grain {
+  position: relative;
+}
+.tactile-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 4px 4px;
+  opacity: 0.7;
+}
+
+/* Dot Grid Background (Nothing OS iconic 16px dot matrix background) */
+.dot-grid-canvas {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Controlled pulsing for active alert only */
+@keyframes criticalPulse {
+  0%, 100% {
+    opacity: 1;
+    border-color: var(--state-red);
+  }
+  50% {
+    opacity: 0.6;
+    border-color: rgba(215, 25, 33, 0.3);
+  }
+}
+
+.critical-pulse {
+  animation: criticalPulse 1.8s ease-in-out infinite;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--nothing-red);
+  outline-offset: 1px;
+}

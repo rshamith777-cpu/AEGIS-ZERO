@@ -1,0 +1,426 @@
+{
+  "experimentId": "orbit_val_1790240721251",
+  "timestamp": "2026-09-24T09:05:21.251Z",
+  "orbitVersion": "ORBIT-A v1.0.0-FROZEN",
+  "benchmarkVersion": "ORBIT-Bench v1.0.0-FROZEN",
+  "coreMetrics100": {
+    "btde": 0.2125,
+    "bdr": 1,
+    "vda": 0.46,
+    "tsa": 0.88,
+    "chl": 5,
+    "mir": 0,
+    "rse": 0.9,
+    "far": 1,
+    "oar": 0.8937,
+    "uce": 0.05
+  },
+  "baselines": [
+    {
+      "baselineName": "Baseline A (Static Threshold)",
+      "description": "Fixed upper limit rule ignoring dynamic coupling and directional sensitivity.",
+      "metrics": {
+        "btde": 0.5345,
+        "bdr": 0.9333,
+        "vda": 0.02,
+        "tsa": 0.89,
+        "chl": 4.94,
+        "mir": 0.6,
+        "rse": 0.52,
+        "far": 1,
+        "oar": 0.7327,
+        "uce": 0.05
+      },
+      "runtimeMs": 6,
+      "scenariosEvaluated": 100
+    },
+    {
+      "baselineName": "Baseline B (Moving-Average Anomaly)",
+      "description": "Z-score rolling window anomaly detector based on temporal historical drift.",
+      "metrics": {
+        "btde": 0.6206,
+        "bdr": 1,
+        "vda": 0.9,
+        "tsa": 0.85,
+        "chl": 3.11,
+        "mir": 0.45,
+        "rse": 0.4,
+        "far": 0,
+        "oar": 0.6897,
+        "uce": 0.85
+      },
+      "runtimeMs": 1.6,
+      "scenariosEvaluated": 100
+    },
+    {
+      "baselineName": "Baseline C (Isolation Forest Approx)",
+      "description": "Unsupervised tree isolation scoring anomalous outlier density.",
+      "metrics": {
+        "btde": 0.6586,
+        "bdr": 1,
+        "vda": 1,
+        "tsa": 0.81,
+        "chl": 4,
+        "mir": 0.35,
+        "rse": 0.4,
+        "far": 0,
+        "oar": 0.6707,
+        "uce": 0.65
+      },
+      "runtimeMs": 1.7,
+      "scenariosEvaluated": 100
+    },
+    {
+      "baselineName": "Baseline D (Forecast-Only Model)",
+      "description": "Point forecast extrapolation without explicit boundary geometry.",
+      "metrics": {
+        "btde": 0.0256,
+        "bdr": 1,
+        "vda": 0.9,
+        "tsa": 0.93,
+        "chl": 2.33,
+        "mir": 0.2,
+        "rse": 0.4,
+        "far": 0,
+        "oar": 0.9872,
+        "uce": 0.05
+      },
+      "runtimeMs": 1.9,
+      "scenariosEvaluated": 100
+    },
+    {
+      "baselineName": "Baseline E (Centrality Heuristic)",
+      "description": "Structural centrality ranking prioritizes hubs regardless of actual load dynamics.",
+      "metrics": {
+        "btde": 1.0296,
+        "bdr": 1,
+        "vda": 0.7,
+        "tsa": 0.45,
+        "chl": 4,
+        "mir": 0.5,
+        "rse": 0.5,
+        "far": 1,
+        "oar": 0.4852,
+        "uce": 0.85
+      },
+      "runtimeMs": 1.3,
+      "scenariosEvaluated": 100
+    },
+    {
+      "baselineName": "Baseline F (Random Intervention)",
+      "description": "Stochastically selects random feasible action without Pareto optimization.",
+      "metrics": {
+        "btde": 0.9826,
+        "bdr": 1,
+        "vda": 0.05,
+        "tsa": 0.73,
+        "chl": 5,
+        "mir": 1.8,
+        "rse": 0.5,
+        "far": 1,
+        "oar": 0.5087,
+        "uce": 0.95
+      },
+      "runtimeMs": 1.9,
+      "scenariosEvaluated": 100
+    },
+    {
+      "baselineName": "Baseline G (Greedy Intervention)",
+      "description": "Myopically executes lowest-cost immediate action without counterfactual safety verification.",
+      "metrics": {
+        "btde": 0.9426,
+        "bdr": 1,
+        "vda": 0.9,
+        "tsa": 0.81,
+        "chl": 4,
+        "mir": 0.35,
+        "rse": 0.5,
+        "far": 1,
+        "oar": 0.5287,
+        "uce": 0.05
+      },
+      "runtimeMs": 1.4,
+      "scenariosEvaluated": 100
+    }
+  ],
+  "ablations": [
+    {
+      "ablationType": "FULL_ORBIT",
+      "description": "Full ORBIT framework with all mathematical components active.",
+      "metrics": {
+        "btde": 0.2125,
+        "bdr": 1,
+        "vda": 0.425,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8937,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {}
+    },
+    {
+      "ablationType": "ORBIT_NO_BOUNDARY",
+      "description": "Disables dynamic BTD search; reverts to point-wise distance heuristics.",
+      "metrics": {
+        "btde": 0.2365,
+        "bdr": 1,
+        "vda": 0,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8818,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {
+        "btde": 0.024,
+        "bdr": 0,
+        "vda": -0.425,
+        "tsa": 0,
+        "mir": 0,
+        "chl": 0,
+        "far": 0,
+        "uce": 0
+      }
+    },
+    {
+      "ablationType": "ORBIT_NO_DIRECTION",
+      "description": "Disables directional stability profile; evaluates single scalar radius only.",
+      "metrics": {
+        "btde": 0.2125,
+        "bdr": 1,
+        "vda": 0.425,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8937,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {
+        "btde": 0,
+        "bdr": 0,
+        "vda": 0,
+        "tsa": 0,
+        "mir": 0,
+        "chl": 0,
+        "far": 0,
+        "uce": 0
+      }
+    },
+    {
+      "ablationType": "ORBIT_NO_TOPOLOGY",
+      "description": "Disables Topology Shock; ignores graph connectivity and dependency severance.",
+      "metrics": {
+        "btde": 0.2125,
+        "bdr": 1,
+        "vda": 0.425,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8937,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {
+        "btde": 0,
+        "bdr": 0,
+        "vda": 0,
+        "tsa": 0,
+        "mir": 0,
+        "chl": 0,
+        "far": 0,
+        "uce": 0
+      }
+    },
+    {
+      "ablationType": "ORBIT_NO_INTERVENTION",
+      "description": "Disables Pareto optimizer; relies on unoptimized heuristic action selection.",
+      "metrics": {
+        "btde": 0.2125,
+        "bdr": 1,
+        "vda": 0.425,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8937,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {
+        "btde": 0,
+        "bdr": 0,
+        "vda": 0,
+        "tsa": 0,
+        "mir": 0,
+        "chl": 0,
+        "far": 0,
+        "uce": 0
+      }
+    },
+    {
+      "ablationType": "ORBIT_NO_UNCERTAINTY",
+      "description": "Disables Monte Carlo sampling; assumes deterministic certainty.",
+      "metrics": {
+        "btde": 0.2125,
+        "bdr": 1,
+        "vda": 0.425,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8937,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {
+        "btde": 0,
+        "bdr": 0,
+        "vda": 0,
+        "tsa": 0,
+        "mir": 0,
+        "chl": 0,
+        "far": 0,
+        "uce": 0
+      }
+    },
+    {
+      "ablationType": "ORBIT_NO_COUNTERFACTUAL",
+      "description": "Disables parallel trajectory branching; optimizes solely on static state snapshots.",
+      "metrics": {
+        "btde": 0.2125,
+        "bdr": 1,
+        "vda": 0.425,
+        "tsa": 0.88,
+        "chl": 5,
+        "mir": 0,
+        "rse": 0.9,
+        "far": 1,
+        "oar": 0.8937,
+        "uce": 0.05
+      },
+      "deltaVsFullOrbit": {
+        "btde": 0,
+        "bdr": 0,
+        "vda": 0,
+        "tsa": 0,
+        "mir": 0,
+        "chl": 0,
+        "far": 0,
+        "uce": 0
+      }
+    }
+  ],
+  "crossDomain": [
+    {
+      "domain": "Regional Cold-Chain Food Supply Network",
+      "btd": 3.5,
+      "regime": "CRITICAL_CASCADE",
+      "actionCost": 12200,
+      "topVar": "+node-depot:inventory"
+    },
+    {
+      "domain": "Cloud Microservices & Distributed Architecture",
+      "btd": 3.5,
+      "regime": "RECOVERABLE_EQUILIBRIUM",
+      "actionCost": 18,
+      "topVar": "+svc_api_gw:cpu"
+    },
+    {
+      "domain": "Urban Traffic & Multi-Modal Transit Grid",
+      "btd": 3.5,
+      "regime": "RECOVERABLE_EQUILIBRIUM",
+      "actionCost": 10,
+      "topVar": "+junc_bay_bridge:density"
+    },
+    {
+      "domain": "Electrical Power Grid & Distributed Microgrid",
+      "btd": 3.5,
+      "regime": "RECOVERABLE_EQUILIBRIUM",
+      "actionCost": 22,
+      "topVar": "+sub_thermal_central:frequency"
+    },
+    {
+      "domain": "Enterprise Zero-Trust & Cybersecurity Infrastructure",
+      "btd": 3.5,
+      "regime": "RECOVERABLE_EQUILIBRIUM",
+      "actionCost": 15,
+      "topVar": "+host_dmz_web:threatScore"
+    }
+  ],
+  "generalization": {
+    "split1TrainBtde": 0.5313,
+    "split1TestBtde": 0,
+    "split2TrainBtde": 0,
+    "split2TestBtde": 0.5313
+  },
+  "holdoutMetrics": {
+    "btde": 0.2282,
+    "bdr": 1,
+    "vda": 0.32,
+    "tsa": 0.88,
+    "chl": 5,
+    "mir": 0,
+    "rse": 0.9,
+    "far": 1,
+    "oar": 0.8859,
+    "uce": 0.05
+  },
+  "scaling": [
+    {
+      "nodeCount": 10,
+      "runtimeMs": 797.02,
+      "memoryMb": 60.79
+    },
+    {
+      "nodeCount": 25,
+      "runtimeMs": 1452.24,
+      "memoryMb": 37.3
+    },
+    {
+      "nodeCount": 50,
+      "runtimeMs": 2941.91,
+      "memoryMb": 92.37
+    },
+    {
+      "nodeCount": 100,
+      "runtimeMs": 8362.37,
+      "memoryMb": 35.28
+    },
+    {
+      "nodeCount": 250,
+      "runtimeMs": 41575.65,
+      "memoryMb": 79.5
+    },
+    {
+      "nodeCount": 500,
+      "runtimeMs": 219799.28,
+      "memoryMb": 68.5
+    },
+    {
+      "nodeCount": 1000,
+      "runtimeMs": 1351763.58,
+      "memoryMb": 139.4
+    }
+  ],
+  "statisticalValidation": {
+    "btdeMean": 0.21227999999999997,
+    "btdeStd": 0.0005890670590009331,
+    "bdrMean": 1,
+    "bdrStd": 0,
+    "seedsTested": [
+      42,
+      1337,
+      2026,
+      9999,
+      10101
+    ]
+  }
+}

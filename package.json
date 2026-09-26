@@ -1,0 +1,32 @@
+{
+  "name": "aegis-zero",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test:orbit": "npx tsx src/orbit/__tests__/runTests.ts",
+    "research:real": "npx tsx src/orbit/experiments/runRealWorldSuite.ts",
+    "research:v3": "npx tsx src/orbit/experiments/runV3Suite.ts",
+    "benchmark:scalability": "npx tsx src/orbit/experiments/benchmarkScalability.ts"
+  },
+  "dependencies": {
+    "lucide-react": "^1.48.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.186.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
